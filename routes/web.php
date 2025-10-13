@@ -5,3 +5,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return 'Hello, World!';
 });
+
+Route::get('/about', function () {
+    return 'About Us';
+});
+
+Route::get('/contact', function () {
+    return 'Contact Us';
+});
