@@ -15,9 +15,16 @@ Route::get('/about', [AboutController::class, 'about']);
 
 Route::get('/contact', [ContactController::class, 'contact']);
 
+Route::get('/login');
 
-Route::get('/contact/{name}/{category_id}', function(string $name, int $category_id = 1) {
-    echo "Estamos aqui: $name, $category_id";
-})->where('category_id', '[0-9]+')->where('name', '[A-Za-z]+');
-
+Route::group(['prefix' => 'app', 'as' => 'app.'], function () {
+    Route::get('/clients')->name('clients');
+    Route::get('/fornecedores')->name('fornecedores');
+    Route::get('/products')->name('products');
+});
+// Route::prefix('/app')->group(function () {
+//     Route::get('/clients');
+//     Route::get('/fornecedores');
+//     Route::get('/products');
+// });
 
