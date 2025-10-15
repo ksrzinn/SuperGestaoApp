@@ -1,15 +1,16 @@
 <?php
 
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PrincipalController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return 'Hello, World!';
-});
+// Route::get('/', 'PrincipalController@principal');
 
-Route::get('/about', function () {
-    return 'About Us';
-});
+// Route::get('/', PrincipalController::class . '@principal');
 
-Route::get('/contact', function () {
-    return 'Contact Us';
-});
+Route::get('/', [PrincipalController::class, 'principal']); //Versão mais nova do PHP 8+
+
+Route::get('/about', [AboutController::class, 'about']);
+
+Route::get('/contact', [ContactController::class, 'contact']);
