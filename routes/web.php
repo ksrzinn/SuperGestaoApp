@@ -14,3 +14,10 @@ Route::get('/', [PrincipalController::class, 'principal']); //Versão mais nova 
 Route::get('/about', [AboutController::class, 'about']);
 
 Route::get('/contact', [ContactController::class, 'contact']);
+
+
+Route::get('/contact/{name}/{category}/{operation}/{vehicle?}', function(string $name, string $category, string $operation, string $vehicle="Veiculo não informado") {
+    echo "Estamos aqui: $name, $category, $operation, $vehicle";
+} );
+
+
