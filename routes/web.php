@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\FornecedorController;
 use App\Http\Controllers\PrincipalController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,8 +20,9 @@ Route::get('/login');
 
 Route::group(['prefix' => 'app', 'as' => 'app.'], function () {
     Route::get('/clients')->name('clients');
-    Route::get('/fornecedores')->name('fornecedores');
+    // Route::get('/fornecedores')->name('fornecedores');
     Route::get('/products')->name('products');
+    Route::get('/fornecedores', [FornecedorController::class, 'index'])->name('indexFornecedor');
 });
 // Route::prefix('/app')->group(function () {
 //     Route::get('/clients');
