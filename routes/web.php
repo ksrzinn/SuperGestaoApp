@@ -10,19 +10,16 @@ use Illuminate\Support\Facades\Route;
 
 // Route::get('/', PrincipalController::class . '@principal');
 
-Route::get('/', [PrincipalController::class, 'principal']); //Versão mais nova do PHP 8+
-
-Route::get('/about', [AboutController::class, 'about']);
-
-Route::get('/contact', [ContactController::class, 'contact']);
-
+Route::get('/', [PrincipalController::class, 'principal'])->name('site.index'); //Versão mais nova do PHP 8+
+Route::get('/about', [AboutController::class, 'about'])->name('site.about');
+Route::get('/contact', [ContactController::class, 'contact'])->name('site.contact');
 Route::get('/login');
 
 Route::group(['prefix' => 'app', 'as' => 'app.'], function () {
     Route::get('/clients')->name('clients');
-    // Route::get('/fornecedores')->name('fornecedores');
+    Route::get('/fornecedores')->name('fornecedores');
     Route::get('/products')->name('products');
-    Route::get('/fornecedores', [FornecedorController::class, 'index'])->name('indexFornecedor');
+    Route::get('/fornecedor', [FornecedorController::class, 'index'])->name('indexFornecedor');
 });
 // Route::prefix('/app')->group(function () {
 //     Route::get('/clients');
